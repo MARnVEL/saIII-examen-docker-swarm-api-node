@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  node:
+    image: my-image
+    deploy:
+      replicas: 9
+    ports:
+      - "80:81"
