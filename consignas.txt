@@ -1,0 +1,9 @@
+- Crear una aplicación que consuma una api gratuita disponible en internet que al ingresar
+ el nombre de una ciudad cualquiera me devuelva la temperatura del dia en esa ciudad de
+  cualquier lugar del mundo, deberá hacerlo en un sitio sencillo .
+
+- Cree el Dockerfile que se utilizara para crear la imagen que contendrá la aplicación. 
+Al desplegar los contenedores,  la aplicación  deberá estar mapeada (volumen) en cualquier 
+directorio de su disco.
+- Crear el yml para el despliegue con swarm de 9 contenedores a partir de la imagen creada 
+con su Dockerfile.

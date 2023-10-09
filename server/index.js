@@ -5,6 +5,7 @@ const app = express();
 dotenv.config();
 
 const port = process.env.PORT || 3000;
+// const port = 81;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -25,6 +26,8 @@ app.get("/weather", async (req, res) => {
 
     // Cambia 'your_api_key' por tu clave de API de OpenWeatherMap
     const apiKey = process.env.API_KEY;
+    // const apiKey = "632009ee31ca65e493e6bc49720e15ea";
+
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${apiKey}`;
 
     const weatherResponse = await fetch(url);
@@ -32,12 +35,8 @@ app.get("/weather", async (req, res) => {
 
     // const temperature = await weatherResponse.data.main.temp;
     const temperature = data.main.temp;
-    console.log("La data es: ", data);
-    // const weatherResponse = await axios.get(
-    //   `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${apiKey}`
-    // );
-
-    console.log("La supuesta temperatura: ", temperature);
+    // console.log("La data es: ", data);
+    // console.log("La supuesta temperatura: ", temperature);
 
     res.json({ temperature });
   } catch (error) {

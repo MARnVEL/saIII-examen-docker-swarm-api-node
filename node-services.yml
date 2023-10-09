@@ -2,7 +2,7 @@ version: '3'
 
 services:
   node:
-    image: my-image
+    image: s1
     deploy:
       replicas: 9
     ports:

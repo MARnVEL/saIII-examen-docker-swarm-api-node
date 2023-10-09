@@ -42,7 +42,7 @@
 > Para utilizar este proyecto,  abrimos un CLI y nos dirigimos al directorio del sistema donde deseamos guardarlo. Ejecutamos el siguiente comando
 
 ```bash
-git clone https://github.com/MARnVEL/saIII-DockerSwarm.git
+git clone https://github.com/MARnVEL/saIII-examen-docker-swarm-api-node.git
 ```
 
 1. Iniciar la aplicación Docker Desktop
