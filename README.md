@@ -2,6 +2,7 @@
 # Docker Swarm (servers + balancer)
 >
 > This repo was created to address some practical questions about Docker Compose posed by the class 'Upgrade Seminar III' of the **Formosa Polytechnic Institute** .
+> 
 > *Este repositorio fue creado para abordar algunas preguntas prácticas sobre Docker Compose planteadas por la clase 'Seminario de Actualización III' del **Instituto Politécnico Formosa***.
 
 ## Tecnologías utilizadas
@@ -62,7 +63,7 @@ git clone https://github.com/MARnVEL/saIII-examen-docker-swarm-api-node.git
       * Luego:
 
       ```bash
-      docker build -t my-image .
+      docker build -t s1 .
       ```
 
       * Con este comando construiremos la imagen que luego será utilizada en nuestro [[fichero .yml]](`./node-services.yml`) (línea 5).
@@ -70,71 +71,18 @@ git clone https://github.com/MARnVEL/saIII-examen-docker-swarm-api-node.git
 4. Luego hacemos un `cd ..` para volver al directorio raíz de nuestro proyecto y ejecutamos.:
 
       ```bash
-      docker stack deploy -c node-services.yml myNodeJS
+      docker stack deploy -c node-services.yml sn
       ```
 
-5. Podemos listar los servicios de **swarm**:
+5. Abrimos un navegador y nos dirigimos a la ruta: `http://localhost/`
+
+6. Podemos listar los servicios de **swarm**:
 
       ```bash
       docker service ls
       ```
 
-6. Ahora, debemos hacer unas pequeñas modificaciones de nuestros servidores dentro de los servicios desplegados para que podamos distinguir claramente el balanceo y/o funcionamiento de la herramiente "Docker swarm".
-
-7. Listamos los contenedores levantados y anotamos los CONTAINER IDs para los 3 servicios desplegados:
-
-      ```bash
-      docker ps
-      ```
-
-8. Para cada contenedor hacemos lo siguiente:
-
-      ```bash
-      docker exec -it <idContenedor> sh
-      ```
-
-      * Hacemos una consulta `ls` para saber qué tenemos efectivamente dentro del contenedor.
-      * Una vez dentro del cotenedor hacemos:
-
-      ```bash
-      apk update
-      ```
-
-      * Verificamos que exista el editor de texto nano
-
-      ```bash
-      apk search nano
-      ```
-
-      * Si no existe, o en pasos posteriores no podemos usar `nano`, hacemos la instalación del editor nano para poder editar nuestro fichero `index.js`
-
-      ```bash
-      apk add nano
-      ```
-
-      * Ahora editamos nuestro fichero `index.js`
-
-      ```bash
-      nano index.js
-      ```
-
-      * Para escribir, o guardar los cambios en nano hacemos: `Ctrl + O`. Luego Confirmamos con Enter.
-      * Para salir del editor: `Ctrl + X`
-
-      En la línea 7 cambiamos el valor dentro del `<h1>`: `res.send("<h1>Server 1</h1>");`.
-      Si el servicio es el primero, tendrá el número 1; si el servicio es el segundo, tendrá el númer 2, y así sucesivamente.
-
-9. Para probar que efectivamente el balanceador está funcionando primero necesitamos conocer la dirección IP de nuestra máquina. En Windows 10: `ipconfig`
-
-      * Luego ejecutamos repetidamente:
-
-      ```bash
-      curl <ip>
-      ```
-
-      * Si el balanceador funciona correctamente deberíamos poder ver distintas respuestas.
-
-10. Escalamiento. Para poder aumentar la cantidad de servicios disponibles, abrimos un CLI y ejecutamos:
+7. Escalamiento. Para poder aumentar la cantidad de servicios disponibles, abrimos un CLI y ejecutamos:
 
       ```bash
       docker service scale myNodeJS=5
