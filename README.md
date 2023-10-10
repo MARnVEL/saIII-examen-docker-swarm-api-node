@@ -73,7 +73,7 @@ git clone https://github.com/MARnVEL/saIII-examen-docker-swarm-api-node.git
       ```
 
       En este fichero `.env` colocamos las variables que se indican en el fichero `.example.env`. Obviamente, en la variable `API_KEY` deberás reeplazar el valor que trae por defecto y colocar en su lugar tu clave.
-      **Advertencia**: Si deseas cambiar el valor de la variable PORT, debes tener en cuenta que este mismo valor bebe estar también, en el fichero [Dockerfile]('./server/Dockerfile'), en la sentencia `EXPOSE`; y en el fichero [node-services](`./node-services.yml`), en la sección `ports` (en vez de 81 debería ir el valor del PORT que utilizaste en el fichero `.env`).
+      **Advertencia**: Si deseas cambiar el valor de la variable PORT, debes tener en cuenta que este mismo valor bebe estar también, en el fichero ![Dockerfile]('./server/Dockerfile'), en la sentencia `EXPOSE`; y en el fichero ![node-services](`./node-services.yml`), en la sección `ports` (en vez de 81 debería ir el valor del PORT que utilizaste en el fichero `.env`).
 
       * Luego:
 
