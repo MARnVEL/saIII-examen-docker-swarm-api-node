@@ -24,9 +24,7 @@ app.get("/weather", async (req, res) => {
   try {
     const cityName = req.query.city;
 
-    // Cambia 'your_api_key' por tu clave de API de OpenWeatherMap
     const apiKey = process.env.API_KEY;
-    // const apiKey = "632009ee31ca65e493e6bc49720e15ea";
 
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${apiKey}`;
 
